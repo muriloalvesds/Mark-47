@@ -1,0 +1,25 @@
+{
+  "name": "microservice_scrap-stock-exchange",
+  "version": "1.0.0",
+  "description": "autonome-bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "imagetyperz-api": "^1.2.6",
+    "node-fetch": "^3.2.0",
+    "puppeteer": "^13.1.2",
+    "puppeteer-extra": "^3.2.3",
+    "puppeteer-extra-plugin-recaptcha": "^3.5.0",
+    "puppeteer-extra-plugin-stealth": "^2.9.0",
+    "stream": "^0.0.2",
+    "util": "^0.12.4"
+  }
+}
