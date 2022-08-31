@@ -53,7 +53,7 @@ const scraperObject = {
     for (const d of data.entries) {
         let page = await browser.newPage();
         await page.goto(d.url);
-      
+        try { 
         //await sleep(15)
         
         // Click on <i> "close"
@@ -76,8 +76,8 @@ const scraperObject = {
         });
 
         //await page.waitForNavigation({ waitUntil: "domcontentloaded" });
-        try { } catch (e) {
-        console.log("Couldn't click on this link: ver todas as movimentações" , e);
+        } catch (e) {
+        console.log("O robo não pode interagir" , e);
       }
       await sleep(5)
       await callPython(spawn)
