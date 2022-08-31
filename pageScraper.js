@@ -16,8 +16,6 @@ async function sleep(sec) {
 }
 
 async function callPython(spawn){
-   
-  //call a Pyton micro service to convetion xls in xlsx   
   try {    
     
     
