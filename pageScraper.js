@@ -50,40 +50,22 @@ const scraperObject = {
   async scraper(browser, data) {
     for (const d of data.entries) {
         let page = await browser.newPage();
-        await page.goto(d.url);
-        try { 
-        //await sleep(15)
-        
-        // Click on <i> "close"
-        //await page.waitForSelector('.btn-close > .material-icons');
-        //await page.click('.btn-close > .material-icons');
-
-        // Scroll wheel by X:0, Y:900
-        await page.evaluate(() => window.scrollBy(0, 900));
-
-        // Click on <button> "search BUSCAR"
-        await page.waitForSelector('.find');
-        await page.click('.find');
-        await page._client.send('Page.setDownloadBehavior', {behavior: 'allow', downloadPath: downloadPath})
-
-        // Click on <a> "cloud_download DOWNLOAD"
-        await page.waitForSelector('.btn-download');
-        //await page.click('#main-2 > div.container-full.mt-5.pb-3 > div > div.mb-3.d-flex.justify-between.align-items-center > div.d-flex > a > span');
-        await page.evaluate(() => {
-          document.querySelector('#main-2 > div.container-full.mt-5.pb-3 > div > div.mb-3.d-flex.justify-between.align-items-center > div.d-flex > a > span').click();
-        });
-
-        //await page.waitForNavigation({ waitUntil: "domcontentloaded" });
+        try {
+           await page.goto(d.url);
         } catch (e) {
-        console.log("O robo não pode interagir" , e);
+           console.log({"404":"Não é possível acessar essa url"})
+        }
+        const html = await page.content(); 
+        fs.writeFileSync("site.html", html);
+      try { 
+            
+      } catch (e) {
+        console.log({"404":"O robo não pode interagir"});
       }
-      await sleep(5)
-      await callPython(spawn)
-
-      console.log('Finalizado')
+      console.log({'Log':'Finalizado'})
     }
     browser.close();
   },
 };
-
+ 
 module.exports = scraperObject;
