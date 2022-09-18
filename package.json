@@ -1,5 +1,5 @@
   {
-    "name": "microservice_scrap-stock-exchange",
+    "name": "microservice_scrap",
     "version": "1.0.0",
     "description": "autonome-bot",
     "main": "index.js",
