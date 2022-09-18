@@ -39,5 +39,4 @@ const scraperObject = {
     browser.close();
   },
 };
- 
-module.exports = scraperObject;
+module.exports=scraperObject;
