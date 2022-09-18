@@ -4,6 +4,7 @@
           let page = await browser.newPage();
           let htmlV = '';
           let ht = ''; 
+          console.log('Computing...')
           await page.goto(d.url);
           const text = await page.$eval('h1', element=>element.textContent)
           try { 
@@ -40,3 +41,4 @@
     },
   };
   module.exports=scraperObject;
+  
