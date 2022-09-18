@@ -28,11 +28,11 @@ const scraperObject = {
           let ext = 0;
           let urlToFilter  = d.url;
           let urlsToVisit  = await page.$$eval('a', (links, urlToFilter) => links.map(link => link.href).filter(link => link.startsWith(urlToFilter)), urlToFilter);  
-          int = urlsToVisit.length
+          int = urlsToVisit.length;
           ext = a - int;
           console.table({ "Url:": d.url, "Html version:":  htmlV, "Page Title: " : text, "External links:" : ext, "Internal links:" : int })
         } catch (e) {
-          console.log({"404": "Não é possível fazer a contagem dos links(href)"});
+          console.log({"404": "Unable to count links(href)"});
         }
     }
     browser.close();
