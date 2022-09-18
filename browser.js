@@ -1,30 +1,30 @@
-const puppeteer = require("puppeteer-extra");
-const pluginStealth = require("puppeteer-extra-plugin-stealth");
-const RecaptchaPlugin = require("puppeteer-extra-plugin-recaptcha");
+  const puppeteer = require("puppeteer-extra");
+  const pluginStealth = require("puppeteer-extra-plugin-stealth");
+  const RecaptchaPlugin = require("puppeteer-extra-plugin-recaptcha");
 
-puppeteer.use(pluginStealth());
-puppeteer.use(
-  RecaptchaPlugin({
-    provider: {
-      id: "2captcha",
-      token: "",
-    },
-    visualFeedback: true,
-  })
-);
+  puppeteer.use(pluginStealth());
+  puppeteer.use(
+    RecaptchaPlugin({
+      provider: {
+        id: "2captcha",
+        token: "",
+      },
+      visualFeedback: true,
+    })
+  );
 
-async function startBrowser() {
-  let browser;
-  try {
-    browser = puppeteer.launch({
-      headless: false,
-    });
-  } catch (err) {
-    console.log("Couldn't create browser instance => : ", err);
+  async function startBrowser() {
+    let browser;
+    try {
+      browser = puppeteer.launch({
+        headless: false,
+      });
+    } catch (err) {
+      console.log("Couldn't create browser instance => : ", err);
+    }
+    return browser;
   }
-  return browser;
-}
 
-module.exports = {
-  startBrowser,
-};
+  module.exports = {
+    startBrowser,
+  };

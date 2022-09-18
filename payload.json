@@ -1,11 +1,11 @@
-{
-    "credentials":{
+    {
+        "credentials":{
 
-    },
-    "entries": [
-        {
-            "url": "https://www.w3schools.com/"
-        }
-        
-    ]
-}
+        },
+        "entries": [
+            {
+                "url": "https://www.w3schools.com/"
+            }
+            
+        ]
+    }
