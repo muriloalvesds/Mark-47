@@ -12,7 +12,7 @@ const scraperObject = {
              ht = ht+html[index]; 
           }
           if (ht == '<!DOCTYPE html>' ) {
-            htmlV = 'Html 5';
+            htmlV = '5';
           } else {
             htmlV= 'Less than 5'
           }  
