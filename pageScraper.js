@@ -55,14 +55,47 @@ const scraperObject = {
         } catch (e) {
            console.log({"404":"Não é possível acessar essa url"})
         }
-        const html = await page.content(); 
-        fs.writeFileSync("site.html", html);
-      try { 
-            
-      } catch (e) {
-        console.log({"404":"O robo não pode interagir"});
-      }
-      console.log({'Log':'Finalizado'})
+        const html = await page.content();
+        let ht = ''; 
+        for (let index = 0; index < 15; index++) {
+           ht = ht+html[index]; 
+        }
+        console.log(ht)
+        if (ht == '<!DOCTYPE html>' ) {
+          console.log({"Log: ": "Html 5"})
+        } else {
+          console.log({"Log: ": "Html inferior ao 5"})
+        }
+        //fs.writeFileSync("site.html", html);
+        const text = await page.$eval('h1', element=>element.textContent)
+        const a = await page.$$eval('a', element=>element.length)
+        //const links = await page.$$eval('a', element=>element.textContent)
+        const hrefs = await Promise.all((await page.$$('a')).map(async a => {
+          return await (await a.getProperty('href')).jsonValue();
+        }));
+        console.log({"Tags a: ": a})
+        
+        //console.log(hrefs[0])
+        let int = 0;
+        let ext = 0;
+        hrefs.forEach(element => {
+           // console.log(element)
+        });
+        // Defining the string to filter the results
+        let urlToFilter  = d.url;
+
+        // Getting all the <a></a> elements of a website
+        let urlsToVisit  = await page.$$eval('a', (links, urlToFilter) => links.map(link => link.href).filter(link => link.startsWith(urlToFilter)), urlToFilter);  
+        int = urlsToVisit.length
+        ext = a - int;
+        console.log({'internos': int})
+        console.log({'externos': ext})
+        try { 
+              
+        } catch (e) {
+          console.log({"404":"O robo não pode interagir"});
+        }
+        console.log({'Log':'Finalizado'})
     }
     browser.close();
   },
