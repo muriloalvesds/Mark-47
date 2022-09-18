@@ -24,13 +24,14 @@ const scraperObject = {
           const hrefs = await Promise.all((await page.$$('a')).map(async a => {
             return await (await a.getProperty('href')).jsonValue();
           }));
+          //console.log(hrefs)
           let int = 0;
           let ext = 0;
           let urlToFilter  = d.url;
           let urlsToVisit  = await page.$$eval('a', (links, urlToFilter) => links.map(link => link.href).filter(link => link.startsWith(urlToFilter)), urlToFilter);  
           int = urlsToVisit.length;
           ext = a - int;
-          console.table({ "Url:": d.url, "Html version:":  htmlV, "Page Title: " : text, "External links:" : ext, "Internal links:" : int })
+          console.table({ "Url:": d.url, "Html Version:":  htmlV, "Page Title: " : text, "External Links:" : ext, "Internal Links:" : int })
         } catch (e) {
           console.log({"404": "Unable to count links(href)"});
         }
