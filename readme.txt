@@ -1,16 +1,16 @@
 Instalar node
-Dependencias:
+dependencies:
 npm install
 
-Rodando o sistema:
+running the system:
 
-Alimentar as urls no arquivo payload.json, ou alterar a chamada do sistema com 
-o nome do arquivo json contendo os paramentros de URL.
+Feed the urls into the payload.json file, or change the system call with
+the name of the json file containing the URL parameters.
 
-O sistema suporta varia entradas de url atraves de JSON
+The system supports varies url entries through JSON
 
-Executar o comando a baixo via terminal na raiz do projeto
+Run the commands on terminal in the project root
 
 node index.js payload.json 
 
-Os resultados são exibidos diretamente no terminal
+Results are displayed directly in the terminal
