@@ -1,4 +1,4 @@
-const scraperObject = {
+  const scraperObject = {
   async scraper(browser, data) {
     for (const d of data.entries) {
         let page = await browser.newPage();
