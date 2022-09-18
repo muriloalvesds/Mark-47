@@ -17,7 +17,7 @@
     let browser;
     try {
       browser = puppeteer.launch({
-        headless: false,
+        headless: true,
       });
     } catch (err) {
       console.log("Couldn't create browser instance => : ", err);
