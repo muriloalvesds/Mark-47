@@ -13,4 +13,4 @@ Run the commands on terminal in the project root
 
 node index.js payload.json 
 
-Results are displayed directly in the terminal
+Results are displayed directly in terminal
