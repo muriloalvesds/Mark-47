@@ -1,4 +1,4 @@
-Instalar node
+Install node
 dependencies:
 npm install
 
